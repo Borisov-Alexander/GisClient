@@ -1,0 +1,36 @@
+.button-case {
+    float: right;
+    padding-left: 5%;
+    .button {
+        max-height: 40%;
+        max-width: 15%;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        padding-left: 30%;
+        padding-right: 70%;
+        text-align: center;
+        border: solid 1px #e8e8e8;
+        border-radius: 4px;
+        background: #666666;
+        color: #ffffff;
+        font-size: 1.7vw;
+        vertical-align: middle;
+    }
+    @media screen and (max-width: 599px) {
+        max-width: 25%;
+        padding-left: 0%;
+        .button {
+            max-height: 50%;
+            text-align: center;
+            padding-top: 15%;
+            border: solid 1px #e8e8e8;
+            border-radius: 4px;
+            background: #666666;
+                color: #ffffff;
+                font-size: 4vw;
+                vertical-align: middle;
+
+
+        }
+    }
+}

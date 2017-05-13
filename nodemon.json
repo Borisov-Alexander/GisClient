@@ -1,0 +1,12 @@
+{
+  "events": {
+    "restart": "gulp ypos-start"
+  },
+  "ignore": [
+    ".git",
+    "node_modules",
+    "bower_components",
+    "public"
+  ],
+  "ext": "js html json css"
+}

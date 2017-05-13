@@ -1,0 +1,68 @@
+header {
+    height: 12%;
+    width: 100%;
+    background:linear-gradient(to bottom,rgba(15, 15, 15, 1),rgba(0, 0, 0, 0.05));
+    .logo-part {
+        height: 80%;
+        width: 95%;
+        padding-top: 1%;
+        padding-left: 3%;
+        .logo {
+            height: 90%;
+            width: auto;
+            padding: 5px;
+            float: left;
+        }
+        @media screen and (max-width: 599px)  {
+            padding-top: 2%;
+            padding-left: 1%;
+            .logo {
+                width: auto;
+                padding: 5px;
+                float: left;
+            }
+        }
+        .info {
+            height: 100%;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            float: left;
+            padding-left: 2%;
+            .tier1 {
+                font-size: 2vw;
+                color: #ffffff;
+            }
+            .tier2 {
+                font-size: 1vw;
+                color: #ffffff;
+            }
+            .tier3 {
+                padding-top: 10px;
+                font-size: 1vw;
+                color: #ececec;
+            }
+            @media screen and (max-width: 599px) {
+                padding-left: 5%;
+                padding-top: 2%;
+                .tier1 {
+                    font-size: 4.5vw;
+                    color: #ffffff;
+                }
+                .tier2 {
+                    display: none;
+                    font-size: 3vw;
+                    color: #ffffff;
+                }
+                .tier3 {
+                    padding-top: 3px;
+                    padding-left: 3px;
+
+                    font-size: 3vw;
+                    color: #ececec;
+                }
+            }
+        }
+    }
+}
+

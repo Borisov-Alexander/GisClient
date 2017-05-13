@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\Constants",
+    "\\src\\app\\controllers",
+    "\\src\\app\\directives",
+    "\\src\\app\\helpers",
+    "\\src\\app\\main",
+    "\\src\\app\\transports",
+    "\\src\\app\\views"
+  ],
+  "SelectedNode": "\\src\\app\\controllers\\reg.controller.js",
+  "PreviewInSolutionExplorer": false
+}
