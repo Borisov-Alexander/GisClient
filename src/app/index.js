@@ -1,11 +1,16 @@
 angular.module('gis', ['ui.router'])
-    .config(function (
+    .config(['$stateProvider',
+        '$urlRouterProvider',
+        '$qProvider',
+        '$locationProvider',
+        function (
         $stateProvider,
         $urlRouterProvider,
-        $qProvider) {
+        $qProvider,
+        $locationProvider) {
 
         $qProvider.errorOnUnhandledRejections(false);
-
+        $locationProvider.hashPrefix('');       
         $urlRouterProvider.otherwise('/login');
 
         $stateProvider
@@ -27,7 +32,7 @@ angular.module('gis', ['ui.router'])
                 templateUrl: 'app/views/Registration.html'
             })
 
-    });
+    }]);
 
 var checkRouting = function ($q, $rootScope, $location) {
     if ($rootScope.autToken != null) {

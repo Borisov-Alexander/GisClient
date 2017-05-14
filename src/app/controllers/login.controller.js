@@ -1,11 +1,13 @@
 angular.module('gis').controller('LoginController', [
     "$rootScope",
     "$http",
-    "$scope",
+    "$window",
+    "$scope",    
     "Service",
     function (
               $rootScope,
               $http,
+              $window,
               $scope,
               regService) {
         
@@ -16,9 +18,14 @@ angular.module('gis').controller('LoginController', [
         $scope.login = function () {                      
              
             regService.login($scope.log, $scope.pass).then(function (data) {
-                $rootScope.autToken = data.access_token;               
+                $rootScope.autToken = data.access_token; 
+                $window.location.href = '#/user';
             });
            
             
-        };   
+        }; 
+        $scope.reg = function () {
+            $window.location.href = '#/registration';
+        };
+
     }]);
