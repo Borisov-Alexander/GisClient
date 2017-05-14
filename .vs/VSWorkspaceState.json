@@ -5,12 +5,12 @@
     "\\src\\app",
     "\\src\\app\\Constants",
     "\\src\\app\\controllers",
-    "\\src\\app\\directives",
-    "\\src\\app\\helpers",
-    "\\src\\app\\main",
-    "\\src\\app\\transports",
-    "\\src\\app\\views"
+    "\\src\\app\\views",
+    "\\src\\assets\\images",
+    "\\src\\Js\\common",
+    "\\src\\scss\\common",
+    "\\src\\scss\\login"
   ],
-  "SelectedNode": "\\src\\app\\controllers\\reg.controller.js",
+  "SelectedNode": "\\src\\app\\views\\Login.html",
   "PreviewInSolutionExplorer": false
 }

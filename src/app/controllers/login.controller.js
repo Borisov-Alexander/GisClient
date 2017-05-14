@@ -16,7 +16,7 @@ angular.module('gis').controller('LoginController', [
         $scope.login = function () {                      
              
             regService.login($scope.log, $scope.pass).then(function (data) {
-                $rootScope.autToken = data.access_token;
+                $rootScope.autToken = data.access_token;               
             });
            
             
