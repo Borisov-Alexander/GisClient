@@ -13,8 +13,8 @@ angular.module('gis').service("Service", [
             return getToken(log, pass);
 
         };
-        regService.getUserFullInfo = function (data) {
-            return regTransport.getUserFullInfo(data);
+        regService.getUserFullInfo = function () {
+            return regTransport.getUserFullInfo();
 
         };
         var getToken = function (log, pass) {

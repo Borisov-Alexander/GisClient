@@ -41,8 +41,7 @@ var checkRouting = function ($q, $window, $location) {
     if ($window.sessionStorage.autToken != null) {
         return true;
     } else {
-        var defered = $q.defer();        
-        return defered.promise;
+        $window.location.href = '/';
     }
 };
 

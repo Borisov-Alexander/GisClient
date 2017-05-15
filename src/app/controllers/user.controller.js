@@ -9,15 +9,16 @@ angular.module('gis').controller('UserController', [
         $http,
         $window,
         $scope,
-        regService) {       
-         
+        regService) {
+        var logOut = function () {
+            $window.sessionStorage.clear();
+            $window.sessionStorage.userName;
+        }, getuserInfo = function () {
+        return regService.getUserFullInfo();
+        }
 
         $scope.userName = $window.sessionStorage.userName;
-        $scope.userFullInfo = getuserInfo;
+        $scope.userFullInfo = getuserInfo();
+        $scope.logout = logOut;
 
-
-        var getuserInfo = function () {
-            var data = {};
-            return regService.getUserFullInfo(data);
-        }
     }]);

@@ -2,14 +2,16 @@ angular.module('gis').service("RequestHelper", [
     "$http",
     "$rootScope",
     "MainConstants",
+    "$window",
     function (        
         $http,
         $rootScope,
-        MainConstants) {
+        MainConstants,
+        $window) {
         var requestHelper = {};
         
         var headers = {
-            "Authorization": "Bearer " + $rootScope.autToken
+            "Authorization": "Bearer " + $window.sessionStorage.autToken
         };
         
         var performRequest = function (method, url,  data) {
@@ -19,7 +21,8 @@ angular.module('gis').service("RequestHelper", [
         };
         
         requestHelper.get = function (url) {
-            return performRequest("GET", url);
+            return performRequest("GET", MainConstants.TENANT_API_URL + url);          
+            
         };
         
         requestHelper.post = function (url,  data) {

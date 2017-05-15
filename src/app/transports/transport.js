@@ -9,8 +9,8 @@ angular.module('gis').service("Transport", [
         regTransport.login = function (data) {
             return requestHelper.post("/Token", data);
         };
-        regTransport.getUserFullInfo = function (data) {
-            return requestHelper.post("/UserFullInfo", data);
+        regTransport.getUserFullInfo = function () {
+            return requestHelper.get("/api/Account/UserFullInfo");
         };
         return regTransport;
     }
