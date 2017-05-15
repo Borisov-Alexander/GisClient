@@ -9,7 +9,7 @@ angular.module('gis').service("RequestHelper", [
         var requestHelper = {};
         
         var headers = {
-           // "Authorization": "Bearer " + $rootScope.autToken
+            "Authorization": "Bearer " + $rootScope.autToken
         };
         
         var performRequest = function (method, url,  data) {
