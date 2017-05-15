@@ -6,11 +6,8 @@
     "\\src\\app\\Constants",
     "\\src\\app\\controllers",
     "\\src\\app\\views",
-    "\\src\\assets\\images",
-    "\\src\\Js\\common",
-    "\\src\\scss\\common",
-    "\\src\\scss\\login"
+    "\\src\\scss"
   ],
-  "SelectedNode": "\\src\\app\\views\\Login.html",
+  "SelectedNode": "\\src\\scss\\app.scss",
   "PreviewInSolutionExplorer": false
 }
