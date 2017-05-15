@@ -18,8 +18,8 @@ angular.module('gis').controller('LoginController', [
         $scope.login = function () {                      
              
             regService.login($scope.log, $scope.pass).then(function (data) {
-                $rootScope.autToken = data.access_token; 
-                $rootScope.userName = data.userName; 
+                $window.sessionStorage.autToken = data.access_token; 
+                $window.sessionStorage.userName = data.userName; 
                 $window.location.href = '#/user';
             });
            

@@ -10,8 +10,14 @@ angular.module('gis').controller('UserController', [
         $window,
         $scope,
         regService) {       
+         
+
+        $scope.userName = $window.sessionStorage.userName;
+        $scope.userFullInfo = getuserInfo;
 
 
-        $scope.userName =  $rootScope.userName = data.userName;
-               
+        var getuserInfo = function () {
+            var data = {};
+            return regService.getUserFullInfo(data);
+        }
     }]);
