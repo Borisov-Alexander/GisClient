@@ -17,7 +17,7 @@ angular.module('gis', ['ui.router'])
             .state('user', {
                 url: '/user',
                 templateUrl: 'app/views/User.html',
-                controller: 'LoginController',
+                controller: 'UserController',
                 resolve: {
                     factory: checkRouting
                 }
@@ -25,7 +25,10 @@ angular.module('gis', ['ui.router'])
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'app/views/Login.html'
+                templateUrl: 'app/views/Login.html',
+                resolve: {
+                    factory: checkCache
+                }
             })
             .state('registration', {
                 url: '/registration',
@@ -34,21 +37,18 @@ angular.module('gis', ['ui.router'])
 
     }]);
 
-var checkRouting = function ($q, $rootScope, $location) {
-    if ($rootScope.autToken != null) {
+var checkRouting = function ($q, $window, $location) {
+    if ($window.sessionStorage.autToken != null) {
         return true;
     } else {
-        var defered = $q.defer();
-        $http.post("/login", { userToken: "blah" })
-            .success(function (response) {
-                $rootScope.userProfile = response.userProfile;
-                defered.resolve(true);
-            })
-            .error(function () {
-                defered.reject();
-                $location.path("/");
-            });
+        var defered = $q.defer();        
         return defered.promise;
+    }
+};
+
+var checkCache = function ($q, $window, $location) {
+    if ($window.sessionStorage.autToken != null) {
+        $window.location.href = '#/user';
     }
 };
     

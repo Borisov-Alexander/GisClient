@@ -13,7 +13,10 @@ angular.module('gis').service("Service", [
             return getToken(log, pass);
 
         };
+        regService.getUserFullInfo = function (data) {
+            return regTransport.getUserFullInfo(data);
 
+        };
         var getToken = function (log, pass) {
             return $http({ method: "POST", url: "http://localhost:9110/Token", data: "userName=" + encodeURIComponent(log) + "&password=" + encodeURIComponent(pass) + "&grant_type=password", headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
                 return response.data;
