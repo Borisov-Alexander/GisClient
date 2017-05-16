@@ -14,7 +14,9 @@ angular.module('gis').controller('UserController', [
             $window.sessionStorage.clear();
             $window.sessionStorage.userName;
         }, getuserInfo = function () {
-        return regService.getUserFullInfo();
+            return regService.getUserFullInfo().then(function (response) {
+                $scope.userFullInfo = response;
+            })
         }
 
         $scope.userName = $window.sessionStorage.userName;

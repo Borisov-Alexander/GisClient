@@ -1,4 +1,6 @@
-angular.module('gis').factory('UserViewModel', ['ModelStateExtension', function (modelStateExtension) {
+angular.module('gis').factory('UserViewModel', [
+    ""
+    , function (modelStateExtension) {
     var userViewModel = function () {
         this.adress = '';
         this.city = '';
@@ -12,5 +14,5 @@ angular.module('gis').factory('UserViewModel', ['ModelStateExtension', function 
         this.userName = null;
     }
     angular.extend(userViewModel.prototype, modelStateExtension);
-    return contactInfoViewModel;
+    return userViewModel;
 }]);
