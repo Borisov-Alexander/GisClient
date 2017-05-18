@@ -21,6 +21,10 @@ angular.module('gis').controller('RegController', [
             }  
             regService.registration(data);
            
-        };      
+        }; 
+
+        $scope.login = function () {
+            $window.location.href = '#/login';
+        };
 
     }]);

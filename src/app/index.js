@@ -23,13 +23,31 @@ angular.module('gis', ['ui.router'])
                 }
 
             })
+            .state('addFactory', {
+                url: '/addFactory',
+                templateUrl: 'app/views/AddFactory.html',
+                controller: 'AddFactoryController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })
+            .state('factoryList', {
+                url: '/factoryList',
+                templateUrl: 'app/views/FactoryList.html',
+                controller: 'FactoryListController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })            
             .state('login', {
                 url: '/login',
                 templateUrl: 'app/views/Login.html',
                 resolve: {
                     factory: checkCache
                 }
-            })
+            })            
             .state('registration', {
                 url: '/registration',
                 templateUrl: 'app/views/Registration.html'

@@ -3,18 +3,28 @@
     <div class="wrapper" ng-app="gis" ng-controller="UserController">
         <div class="sidebar" data-color="purple" data-image="assets/images/sidebar-1.jpg">           
             <div class="logo">
-                <a class="simple-text">
-                    {{userFullInfo.firstName}}
-                </a>
+                <img class="img" src="assets/images/navlogo.svg" />
             </div>
             <div class="sidebar-wrapper">
-                <ul class="nav">                    
+                <ul class="nav">                     
                     <li class="active">
-                        <a href="user.html">
+                        <a href="#/user">
                             <i class="material-icons">person</i>
                             <p>User Profile</p>
                         </a>
-                    </li>                    
+                    </li> 
+                    <li class="active">
+                        <a href="#/addFactory">
+                            <i class="material-icons">queue</i>
+                            <p>Add Factory</p>
+                        </a>
+                    </li> 
+                    <li class="active">
+                        <a href="#/factoryList">
+                            <i class="material-icons">list</i>
+                            <p>Factory List</p>
+                        </a>
+                    </li> 
                 </ul>
             </div>
         </div>
@@ -41,7 +51,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
+                                    <span class="notification">4</span>
                                     <p class="hidden-lg hidden-md">Notifications</p>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -53,7 +63,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a  class="btn btn-primary btn-round" href="#" ng-click="logout()">LOGOUT</a>
+                                <a  class="btn btn-primary pull-right" href="#" ng-click="logout()">LOGOUT</a>
                             </li>
                         </ul>
                         <form class="navbar-form navbar-right" role="search">
@@ -83,20 +93,20 @@
                                             <div class="col-md-5">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Company</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.company">
                                                      <!--<input type="text" class="form-control" disabled>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Username</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.userName">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Email address</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" class="form-control" ng-model="userFullInfo.email" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -104,13 +114,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Fist Name</label>
-                                                    <input type="text" class="form-control" value="{{userFullInfo.firstName}}">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.firstName">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Last Name</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.lastName">
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +128,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Adress</label>
-                                                    <input type="text" class="form-control" value="{{userFullInfo.adress}}">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.adress">
                                                 </div>
                                             </div>
                                         </div>
@@ -126,34 +136,27 @@
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">City</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.city">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Country</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" ng-model="userFullInfo.country">
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">Postal Code</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
+                                            </div>                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>About Me</label>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                                        <textarea class="form-control" rows="5"></textarea>
+                                                    <div class="form-group label-floating">                                                        
+                                                        <textarea class="form-control" rows="2" ng-model="userFullInfo.description"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                                        <button type="submit" class="btn btn-primary pull-right" ng-click="updUser()">Update Profile</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -167,10 +170,10 @@
                                     </a>
                                 </div>
                                 <div class="content">
-                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
-                                    <h4 class="card-title">Alec Thompson</h4>
+                                    <h6 class="category text-gray">{{userFullInfo.company}}</h6>
+                                    <h4 class="card-title">{{userFullInfo.firstName}} {{userFullInfo.lastName}}</h4>
                                     <p class="card-content">
-                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                        {{userFullInfo.description}}
                                     </p>                                    
                                 </div>
                             </div>

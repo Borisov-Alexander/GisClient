@@ -1,11 +1,12 @@
 <div class="login" ng-app="gis" ng-controller="RegController">
     <div class="form-signin">
         <div class="text-center">
-            <img src="assets/images/logo.png" alt="Metis Logo">
+            <img src="assets/images/logo.png" alt="Logo">
+            <!--<img class="img" src="assets/images/navlogo.svg" />-->
         </div>
         <hr>
         <div class="tab-content">
-            <div id="login" class="tab-pane active">
+            <div  class="tab-pane active">
                 <form>
                     <p class="text-muted text-center">
                         Enter your username and password
@@ -17,10 +18,7 @@
                     <button class="btn btn-lg btn-primary btn-block" type="submit" href="#/login" ng-click="registration()">Register</button>
                 </form>
             </div>
-            <ul class="list-inline">
-                <li><a class="text-muted" href="#/login" data-toggle="tab">Login</a></li>
-                <li><a class="text-muted" href="#forgot" data-toggle="tab">Forgot Password</a></li>                
-            </ul>
+            <button class="btn btn-sm btn-primary btn-block" type="submit"  href="#/login" ng-click="login()">Sign in</button>            
         </div>
     </div>
 </div>

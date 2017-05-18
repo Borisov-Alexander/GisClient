@@ -11,16 +11,20 @@ angular.module('gis').controller('UserController', [
         $scope,
         regService) {
         var logOut = function () {
-            $window.sessionStorage.clear();
-            $window.sessionStorage.userName;
+            regService.logout();
+            $window.sessionStorage.clear();            
         }, getuserInfo = function () {
-            return regService.getUserFullInfo().then(function (response) {
+            $window.sessionStorage.autToken;
+            return regService.getUserFullInfo().then(function (response) {                
                 $scope.userFullInfo = response;
             })
-        }
+        }, updUser = function () {               
+            return regService.updUser($scope.userFullInfo);
+         }
 
         $scope.userName = $window.sessionStorage.userName;
+        $scope.firstName = $window.sessionStorage.firstName;
         $scope.userFullInfo = getuserInfo();
         $scope.logout = logOut;
-
+        $scope.updUser = updUser;
     }]);

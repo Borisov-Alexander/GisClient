@@ -8,14 +8,14 @@ angular.module('gis').service("RequestHelper", [
         $rootScope,
         MainConstants,
         $window) {
-        var requestHelper = {};
+        var requestHelper = {};        
+       
         
-        var headers = {
-            "Authorization": "Bearer " + $window.sessionStorage.autToken
-        };
-        
-        var performRequest = function (method, url,  data) {
-            return $http({ method: method, url: url, headers: headers, data: data}).then(function (response) {
+        var performRequest = function (method, url, data) {
+            var headers = {
+                "Authorization": "Bearer " + $window.sessionStorage.autToken
+            };
+            return $http({ method: method, url: url, headers: headers, data: data }).then(function (response) {                 
                 return response.data;
             })
         };
