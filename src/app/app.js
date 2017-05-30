@@ -1,4 +1,4 @@
-angular.module('gis', []).run([
+angular.module('gis', ['ui.bootstrap']).run([
   "$location",
   "$rootScope",
   function (

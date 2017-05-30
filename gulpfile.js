@@ -11,18 +11,14 @@ const rename = require("gulp-rename");
 const argv = require("yargs").argv;
 
 const libsSrc = [   
-    //"src/assets/libs/jquery-3.1.0.min.js",
-    "bower_components/jquery/dist/jquery.min.js",
-    "bower_components/angular/angular.min.js",     
-    "bower_components/angular-ui-router/release/angular-ui-router.min.js",
+    "src/assets/libs/jquery-3.1.0.min.js", 
     "src/assets/libs/bootstrap.min.js",
     "src/assets/libs/material.min.js",
     "src/assets/libs/chartist.min.js",
     "src/assets/libs/bootstrap-notify.js",
-    "src/assets/libs/material-dashboard.js",  
-    
-   
-   
+    "src/assets/libs/material-dashboard.js",
+    "bower_components/angular/angular.min.js",     
+    "bower_components/angular-ui-router/release/angular-ui-router.min.js",   
 ]
 
 const appSrc = [

@@ -8,13 +8,13 @@
         <link rel="stylesheet" href="/assets/css/app.min.css"> 
         <base href="/"> 
     </head>
-    <body ng-app="gis">    
-        
-        <div  ui-view></div>
-    
-    
-    </body>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <body ng-app="gis" ng-cloak>    
+        <div class="wrapperHtml" ng-class="{smoothOpacity:true}" ui-view>             
+        </div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTyXGzBqfNn19jUgKYcMTDJxpoJ4l_ds8"></script>
 <script type="text/javascript" src="/libs.min.js"></script>
 <script type="text/javascript" src="/app.min.js"></script>
+
 </html>
