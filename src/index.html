@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 <html>
-    <head>
+    <head ng-cloak>
         <meta charset="utf-8">
         <title>Gis System</title>
         <meta name="description" content="">
@@ -11,7 +11,10 @@
     <body ng-app="gis">    
         
         <div  ui-view></div>
-    <script type="text/javascript" src="/libs.min.js"></script>
-    <script type="text/javascript" src="/app.min.js"></script>
+    
+    
     </body>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="/libs.min.js"></script>
+<script type="text/javascript" src="/app.min.js"></script>
 </html>

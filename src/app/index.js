@@ -9,7 +9,7 @@ angular.module('gis', ['ui.router'])
         $qProvider,
         $locationProvider) {
 
-        $qProvider.errorOnUnhandledRejections(false);
+        //$qProvider.errorOnUnhandledRejections(false);
         $locationProvider.hashPrefix('');       
         $urlRouterProvider.otherwise('/login');
 
@@ -40,7 +40,25 @@ angular.module('gis', ['ui.router'])
                     factory: checkRouting
                 }
 
-            })            
+            })  
+            .state('map', {
+                url: '/map',
+                templateUrl: 'app/views/Map.html',
+                controller: 'MapController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })  
+            .state('home', {
+                url: '/home',
+                templateUrl: 'app/views/Home.html',
+                controller: 'HomeController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })  
             .state('login', {
                 url: '/login',
                 templateUrl: 'app/views/Login.html',

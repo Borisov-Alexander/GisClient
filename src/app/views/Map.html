@@ -1,0 +1,97 @@
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+<div class="wrapper" ng-app="gis" ng-controller="MapController">
+    <div class="sidebar" data-color="purple" data-image="assets/images/sidebar-1.jpg">
+        <div class="logo">
+            <img class="img" src="assets/images/navlogo.svg" />
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="active">
+                    <a href="#/home">
+                        <i class="material-icons">dashboard</i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#/User">
+                        <i class="material-icons">person</i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#/addFactory">
+                        <i class="material-icons">queue</i>
+                        <p>Add Factory</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#/factoryList">
+                        <i class="material-icons">list</i>
+                        <p>Factory List</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#/map">
+                        <i class="material-icons">room</i>
+                        <p>Map</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Map</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">dashboard</i>
+                                <p class="hidden-lg hidden-md">Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">4</span>
+                                <p class="hidden-lg hidden-md">Notifications</p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Mike John responded to your email</a></li>
+                                <li><a href="#">You have 5 new tasks</a></li>
+                                <li><a href="#">You're now friend with Andrew</a></li>
+                                <li><a href="#">Another Notification</a></li>
+                                <li><a href="#">Another One</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="btn btn-primary pull-right" href="#" ng-click="logout()">LOGOUT</a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group  is-empty">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="material-input"></span>
+                        </div>
+                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i><div class="ripple-container"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div id="map"></div>
+        </div>
+    </div>
+

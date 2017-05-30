@@ -4,7 +4,7 @@
   "dependencies": {},
   "scripts": {
     "test": "gulp test",
-    "prestart": "gulp ypos-start",
+    "prestart": "gulp start",
     "start": "nodemon server.js"
   },
   "devDependencies": {

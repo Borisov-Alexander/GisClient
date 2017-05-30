@@ -10,5 +10,12 @@ angular.module('gis').controller('HomeController', [
         $window,
         $scope,
         regService) {
+        var logOut = function () {
+            regService.logout();
+            $window.sessionStorage.clear();
+            $window.sessionStorage.userName;
+        };
+
+        $scope.logout = logOut;
         
     }]);

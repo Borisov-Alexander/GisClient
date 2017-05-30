@@ -1,6 +1,6 @@
 {
   "events": {
-    "restart": "gulp ypos-start"
+    "restart": "gulp start"
   },
   "ignore": [
     ".git",

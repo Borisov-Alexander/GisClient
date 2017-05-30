@@ -10,15 +10,17 @@ const cssnano = require("cssnano");
 const rename = require("gulp-rename");
 const argv = require("yargs").argv;
 
-const libsSrc = [
-    "src/assets/libs/jquery-3.1.0.min.js",
-    "src/assets/libs/material-dashboard.js",
-    "src/assets/libs/material.min.js",
+const libsSrc = [   
+    //"src/assets/libs/jquery-3.1.0.min.js",
+    "bower_components/jquery/dist/jquery.min.js",
+    "bower_components/angular/angular.min.js",     
+    "bower_components/angular-ui-router/release/angular-ui-router.min.js",
     "src/assets/libs/bootstrap.min.js",
+    "src/assets/libs/material.min.js",
     "src/assets/libs/chartist.min.js",
-  "bower_components/angular/angular.min.js",
-  "bower_components/angular-ui-router/release/angular-ui-router.min.js",
-  "bower_components/angular-animate/angular-animate.min.js"
+    "src/assets/libs/bootstrap-notify.js",
+    "src/assets/libs/material-dashboard.js",  
+    
    
    
 ]
@@ -47,13 +49,13 @@ const configSrc = [
   "src/config.json"
 ];
 
-gulp.task("ypos-libs", () => {
+gulp.task("libs", () => {
   gulp.src(libsSrc)
   .pipe(concat("libs.min.js"))
   .pipe(gulp.dest("./public/"));
 });
 
-gulp.task("ypos-app", () => {
+gulp.task("app", () => {
   gulp.src(appSrc)
   .pipe(concat("app.min.js"))
   .pipe(gulpIf(argv.release, ngAnnotate()))
@@ -61,12 +63,12 @@ gulp.task("ypos-app", () => {
   .pipe(gulp.dest("./public/"));
 });
 
-gulp.task("ypos-html", () => {
+gulp.task("html", () => {
   gulp.src(htmlSrc)
   .pipe(gulp.dest("./public/"));
 });
 
-gulp.task("ypos-styles", () => {
+gulp.task("styles", () => {
   var plugins = [
     autoprefixer(),
     cssnano()
@@ -79,20 +81,20 @@ gulp.src(stylesSrc)
   .pipe(gulp.dest("./public/assets/css"));
 });
 
-gulp.task("ypos-assets", () => {
+gulp.task("assets", () => {
   gulp.src(assetsSrc)
   .pipe(gulp.dest("./public/assets/"));
 });
 
-gulp.task("ypos-l10n", () => {
+gulp.task("l10n", () => {
   gulp.src(l10nSrc)
   .pipe(gulp.dest("./public/localization/"))
 })
 
-gulp.task("ypos-config", () => {
+gulp.task("config", () => {
   gulp.src(configSrc)
   .pipe(gulp.dest("./public/"))
 })
 
 
-gulp.task("ypos-start", ["ypos-libs", "ypos-app", "ypos-html", "ypos-styles", "ypos-assets", "ypos-l10n", "ypos-config"]);
+gulp.task("start", ["libs", "app", "html", "styles", "assets", "l10n", "config"]);
