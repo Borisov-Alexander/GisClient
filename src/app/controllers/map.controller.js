@@ -10,18 +10,11 @@ angular.module('gis').controller('MapController', [
         $window,
         $scope,
         regService) {
-
-        var logOut = function () {
-            regService.logout();
-            $window.sessionStorage.clear();
-            $window.sessionStorage.userName;
-        };
+       
         $scope.cities = [];
         $scope.map;
         $scope.infoBox = new google.maps.InfoWindow();
-        var mapContainer = document.getElementById('map');
-        mapContainer.style.width = '70%';
-        mapContainer.style.height = '500px';
+        var mapContainer = document.getElementById('map');        
 
         $http.get('data.json').success(function (data) {
             $scope.cities = data;
@@ -43,8 +36,7 @@ angular.module('gis').controller('MapController', [
             $scope.infoBox.open($scope.map);
             $scope.map.setCenter(coords);
         }
+        
 
-
-
-        $scope.logout = logOut;
+        
     }]);

@@ -11,11 +11,7 @@ angular.module('gis').controller('FactoryListController', [
         $scope,
         regService) {
         
-        var logOut = function () {
-            regService.logout();
-            $window.sessionStorage.clear();
-            $window.sessionStorage.userName;
-        }, getFatory = function () {
+        var  getFatory = function () {
             return regService.getFactoryByEmail().then(function (response) {
                 $scope.factory = response;
             })
@@ -41,5 +37,5 @@ angular.module('gis').controller('FactoryListController', [
         $scope.settingFactoryView = checkViewList;
              
         $scope.factory = getFatory();
-        $scope.logout = logOut;
+        
     }]);

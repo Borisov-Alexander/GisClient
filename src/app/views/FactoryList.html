@@ -1,144 +1,65 @@
-﻿<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-<div class="wrapper" ng-app="gis" ng-controller="FactoryListController">
-    <div class="sidebar" data-color="purple" data-image="assets/images/sidebar-1.jpg">
-        <div class="logo">
-            <img class="img" src="assets/images/navlogo.svg" />
-        </div>
-        <div class="sidebar-wrapper">
-            <ul class="nav">     
-                <li class="active">
-                    <a href="#/home">
-                        <i class="material-icons">dashboard</i>
-                        <p>Home</p>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="#/User">
-                        <i class="material-icons">person</i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="#/addFactory">
-                        <i class="material-icons">queue</i>
-                        <p>Add Factory</p>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="#/factoryList">
-                        <i class="material-icons">list</i>
-                        <p>Factory List</p>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="#/map">
-                        <i class="material-icons">room</i>
-                        <p>Map</p>
-                    </a>
-                </li>
-                 
-            </ul>
-        </div>
-    </div> 
-    <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">{{FactoryViewTitle}}</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">dashboard</i>
-                                <p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">notifications</i>
-                                <span class="notification">4</span>
-                                <p class="hidden-lg hidden-md">Notifications</p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Mike John responded to your email</a></li>
-                                <li><a href="#">You have 5 new tasks</a></li>
-                                <li><a href="#">You're now friend with Andrew</a></li>
-                                <li><a href="#">Another Notification</a></li>
-                                <li><a href="#">Another One</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="btn btn-primary pull-right" href="#" ng-click="logout()">LOGOUT</a>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group  is-empty">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="material-input"></span>
-                        </div>
-                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                            <i class="material-icons">search</i><div class="ripple-container"></div>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-10">
-                                 <div ng-repeat="fac in factory">
-                                     <div class="card card-stats">
-                                         <div class="card-header col-md-2" style="border-radius:8px" data-background-color="purple">
-                                             <img class="img" style="border-radius:8px" src="assets/images/factory.jpg" />
-                                         </div>
-                                         <div class="card-content">
-                                             <h3 style="text-align:left" class="title">{{fac.name}}</h3>
-                                             <p style="text-align:left" class="category">{{fac.adress}}</p>
-                                             <p style="text-align:left" class="category"><small>Овнован в {{fac.year}} году</small> </p>
-                                         </div>
-                                         <br />
-                                         <div class="card-footer">
-
-                                             <p class="category"><strong>Отрасль:</strong> {{fac.industry}}</p>
-                                             <p class="category"><strong>Сайт: </strong>{{fac.site}}</p>
-                                             <p class="category"><strong>Описание: </strong> {{fac.description}}</p>
-                                         </div>
-                                     </div>
-                                 </div>
-                                </div>
-                            <div class="col-md-2">
+﻿<gis-nav>
+        <div class="container-fluid" ng-app="gis" ng-controller="FactoryListController">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div ng-repeat="fac in factory">
                                 <div class="card card-stats">
-                                    <div class="card-header" data-background-color="purple">
-                                        <i class="material-icons">info_outline</i>
+                                    <div class="card-header col-md-3" style="border-radius:8px" data-background-color="purple">
+                                        <img class="img" style="border-radius:8px" src="assets/images/factory.jpg" />
                                     </div>
-                                    <div class="card-content">
-                                        <p class="category">Настройки</p>                                        
+                                    <div class="card-content col-md-6">
+                                        <h3 style="text-align:left" class="title">{{fac.name}}</h3>
+                                        <p style="text-align:left" class="category">{{fac.adress}}</p>
+                                        <p style="text-align:left" class="category"><small>Овнован в {{fac.year}} году</small> </p>
+                                    </div>
+                                    <div class="card-button col-md-2">
                                         <br />
+                                        <a href="#/addMaterial/{{fac.factiryId}}">
+                                            <i class="material-icons">input</i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="material-icons">perm_media</i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="material-icons">library_books</i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="material-icons">room</i>
+                                        </a>
                                     </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <label>                                                
-                                                <input type="checkbox" ng-click="settingFactoryView()" ng-model="settingFactoryView.value2"> Показать все заводы
-                                            </label>
+                                    <br />
+                                    <div class="card-footer col-md-12">
+
+                                        <p class="category"><strong>Отрасль:</strong> {{fac.industry}}</p>
+                                        <p class="category"><strong>Сайт: </strong>{{fac.site}}</p>
+                                        <p class="category"><strong>Описание: </strong> {{fac.description}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                        <div class="col-md-2">
+                            <div class="card card-stats">
+                                <div class="card-header" data-background-color="purple">
+                                    <i class="material-icons">info_outline</i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category">Настройки</p>
+                                    <br />
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <label>
+                                            <input type="checkbox" ng-click="settingFactoryView()" ng-model="settingFactoryView.value2"> Показать все заводы
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>            
-        </div> 
-     </div>
-</div>
+            </div>
+        </div>
+</gis-nav>
 

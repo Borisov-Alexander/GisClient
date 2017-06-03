@@ -1,0 +1,52 @@
+<gis-nav>
+    <div class="container-fluid" ng-app="gis" ng-controller="AddMaterialController">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Add Material</h4>
+                        <p class="category">Add your material</p>
+                    </div>
+                    <div class="card-content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Material name</label>
+                                        <input type="text" class="form-control" ng-model="material.name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Count</label>
+                                        <input type="text" class="form-control" ng-model="material.count">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Cost</label>
+                                        <input type="text" class="form-control" ng-model="material.cost">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <div class="form-group label-floating">
+                                            <textarea class="form-control" rows="2" ng-model="material.description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right" ng-click="addMaterial()">Add Material</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</gis-nav>
