@@ -35,6 +35,10 @@ angular.module('gis').service("Service", [
             return regTransport.addFactory(data);
 
         };
+        regService.addMaterial = function (data) {
+            return regTransport.addMaterial(data);
+
+        };
         regService.logout = function () {
             return regTransport.logout();
 

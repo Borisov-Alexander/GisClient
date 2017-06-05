@@ -41,6 +41,15 @@ angular.module('gis', ['ui.router'])
                 }
 
             }) 
+            .state('materialList', {
+                url: '/materialList',
+                templateUrl: 'app/views/MaterialList.html',
+                controller: 'MaterialListController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            }) 
             .state('addMaterial', {
                 url: '/addMaterial/:id',
                 templateUrl: 'app/views/AddMaterial.html',
