@@ -31,6 +31,10 @@ angular.module('gis').service("Service", [
             return regTransport.getAllFactory(data);
 
         };
+        regService.getAllMaterial = function (data) {
+            return regTransport.getAllMaterial(data);
+
+        };
         regService.addFactory = function (data) {
             return regTransport.addFactory(data);
 

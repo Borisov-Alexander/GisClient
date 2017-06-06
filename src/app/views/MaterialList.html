@@ -1,0 +1,26 @@
+﻿<gis-nav>
+        <div class="container-fluid" ng-app="gis" ng-controller="MaterialListController">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div ng-repeat="mat in material" class="col-md-6">
+                            <div  >
+                                <div class="card card-stats">                                   
+                                    <div class="card-content col-md-12">
+                                        <p style="text-align:center" class="category"><strong>Название материала: {{mat.name}}</strong> </p>                                         
+                                        <p style="text-align:left" class="category">Завод производитель : {{mat.factory.name}}</p>                                       
+                                    </div>                                       
+                                    <div class="card-footer col-md-12">
+                                        <p style="text-align:left" class="category">Стоимость : {{mat.cost}}руб </p>       
+                                        <p style="text-align:left" class="category"> Количество на складе: {{mat.count}}</p> 
+                                        <p style="text-align:left" class="category"> Описание: {{mat.description}}</p>       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+</gis-nav>
+

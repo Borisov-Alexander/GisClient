@@ -21,6 +21,9 @@ angular.module('gis').service("Transport", [
         regTransport.getAllFactory = function () {
             return requestHelper.get("/api/Factory/GetAllFactory");
         };
+        regTransport.getAllMaterial = function () {
+            return requestHelper.get("/api/Material/getAllMaterial");
+        };
         regTransport.addFactory = function (data) {
             return requestHelper.post("/api/Factory/AddFactory", data);
         };
