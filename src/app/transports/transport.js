@@ -18,6 +18,13 @@ angular.module('gis').service("Transport", [
         regTransport.getFactoryByEmail = function () {
             return requestHelper.get("/api/Factory/GetFactoryByEmail");
         };
+        regTransport.getFactoryById = function (data) {
+            return requestHelper.post("/api/Factory/FactoryById/" + data +"/info");
+        };
+        regTransport.getMaterialByName = function (data) {
+            return requestHelper.post("/api/Material/MaterialByName/" + data + "/info");
+        };
+
         regTransport.getAllFactory = function () {
             return requestHelper.get("/api/Factory/GetAllFactory");
         };

@@ -58,7 +58,16 @@ angular.module('gis', ['ui.router'])
                     factory: checkRouting
                 }
 
-            })  
+            }) 
+            .state('factoryInfo', {
+                url: '/factoryInfo/:id',
+                templateUrl: 'app/views/FactoryInfo.html',
+                controller: 'FactoryInfoController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            }) 
             .state('map', {
                 url: '/map',
                 templateUrl: 'app/views/Map.html',
@@ -67,7 +76,17 @@ angular.module('gis', ['ui.router'])
                     factory: checkRouting
                 }
 
-            })  
+            })
+            .state('factoryMap', {
+                url: '/factoryMap/:id',
+                templateUrl: 'app/views/Map.html',
+                controller: 'MapController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            }) 
+             
             .state('home', {
                 url: '/home',
                 templateUrl: 'app/views/Home.html',
@@ -88,6 +107,8 @@ angular.module('gis', ['ui.router'])
                 url: '/registration',
                 templateUrl: 'app/views/Registration.html'
             })
+
+        
 
     }]);
 

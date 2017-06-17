@@ -8,7 +8,7 @@
                                 <div class="card card-stats">                                   
                                     <div class="card-content col-md-12">
                                         <p style="text-align:center" class="category"><strong>Название материала: {{mat.name}}</strong> </p>                                         
-                                        <p style="text-align:left" class="category">Завод производитель : {{mat.factory.name}}</p>                                       
+                                        <p style="text-align:left" class="category" >Завод производитель : <a href="#/factoryInfo/{{mat.factory.factiryId}}">{{mat.factory.name}}</a></p>                                       
                                     </div>                                       
                                     <div class="card-footer col-md-12">
                                         <p style="text-align:left" class="category">Стоимость : {{mat.cost}}руб </p>       

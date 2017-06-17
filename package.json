@@ -1,7 +1,9 @@
 {
   "name": "angular",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.15.3"
+  },
   "scripts": {
     "test": "gulp test",
     "prestart": "gulp start",

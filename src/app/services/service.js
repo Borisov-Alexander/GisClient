@@ -25,6 +25,13 @@ angular.module('gis').service("Service", [
         };
         regService.getFactoryByEmail = function (data) {
             return regTransport.getFactoryByEmail(data);
+        };
+        regService.getFactoryById = function (data) {
+            return regTransport.getFactoryById(data);
+
+        };
+        regService.getMaterialByName = function (data) {
+            return regTransport.getMaterialByName(data);
 
         };
         regService.getAllFactory = function (data) {
@@ -43,6 +50,7 @@ angular.module('gis').service("Service", [
             return regTransport.addMaterial(data);
 
         };
+
         regService.logout = function () {
             return regTransport.logout();
 
@@ -51,6 +59,9 @@ angular.module('gis').service("Service", [
             return $http({ method: "POST", url: MainConstants.TENANT_API_URL + "/Token", data: "userName=" + encodeURIComponent(log) + "&password=" + encodeURIComponent(pass) + "&grant_type=password", headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
                 return response.data;
             })
+        };
+        regService.getDistance = function (input, output) {
+                    
         };
 
         return regService;

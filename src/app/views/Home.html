@@ -7,12 +7,12 @@
                                 <i class="material-icons">content_copy</i>
                             </div>
                             <div class="card-content">
-                                <p class="category">Used Space</p>
-                                <h3 class="title">49/50<small>GB</small></h3>
+                                <p class="category">Просмотры</p>
+                                <h3 class="title">0<small></small></h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons text-danger">warning</i> <a href="#pablo">Get More Space...</a>
+                                    <i class="material-icons">local_offer</i> Просмотры ваших заводов
                                 </div>
                             </div>
                         </div>
@@ -23,12 +23,12 @@
                                 <i class="material-icons">store</i>
                             </div>
                             <div class="card-content">
-                                <p class="category">Revenue</p>
-                                <h3 class="title">$34,245</h3>
+                                <p class="category">Материалы</p>
+                                <h3 class="title">0</h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">date_range</i> Last 24 Hours
+                                    <i class="material-icons">local_offer</i> Сумма всех ваших материалов
                                 </div>
                             </div>
                         </div>
@@ -39,12 +39,12 @@
                                 <i class="material-icons">info_outline</i>
                             </div>
                             <div class="card-content">
-                                <p class="category">Fixed Issues</p>
-                                <h3 class="title">75</h3>
+                                <p class="category">Количество запросов</p>
+                                <h3 class="title">0</h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">local_offer</i> Tracked from Github
+                                    <i class="material-icons">local_offer</i> Предложения для продажи
                                 </div>
                             </div>
                         </div>
@@ -52,19 +52,72 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="card card-stats">
                             <div class="card-header" data-background-color="purple">
-                                <i class="fa fa-twitter"></i>
+                                <i class="material-icons">info_outline</i>
                             </div>
                             <div class="card-content">
-                                <p class="category">Followers</p>
-                                <h3 class="title">+245</h3>
+                                <p class="category">Количество запросов</p>
+                                <h3 class="title">0</h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
+                                    <i class="material-icons">local_offer</i> Предложения для продажи
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>                          
+                </div> 
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-stats">                            
+                            <div class="card-content">
+                                <p style="text-align:center" class="category">Подобрать материалы </p>
+                                <p style="text-align:center" class="category">{{minName}} </p>
+                            </div>
+                            <div class="card-footer">
+
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <h4>Введите название материала</h4>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Введите название материала</label>
+                                        <input type="text" class="form-control" ng-model="materialName">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6">    
+                                    <h4>Выберите адрес доставки</h4>
+                                    <div class="stats">
+                                        <label>
+                                            <input type="checkbox" ng-click="settingFactoryView()" ng-model="settingFactoryView.value4"> Выбрать адрес указанный в профиле
+                                        </label>
+                                        <br />
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Выберите адрес доставки</label>
+                                            <input type="text" class="form-control" ng-model="inputAdress">
+                                        </div>                                        
+                                    </div>                                
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <h4>Выберите один пункт</h4>
+                                    <label>
+                                        <input type="checkbox" ng-click="" ng-model="settingFactory.value1"> Найти ближайшего производителя
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" ng-click="" ng-model="settingFactoryView.value2"> Найти самый дешевый материал
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" ng-click="" ng-model="settingFactoryView.value3"> Найти материал с учетом стоимости и расстояния (20 рублей за км)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="getMaterialByName()">Найти материал</button> 
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="getDistance()">Показать завод производителя</button>
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="">Показать путь до завода на карте</button>
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="">Сохранить шаблон</button>    
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 </gis-nav>        

@@ -1,0 +1,30 @@
+<gis-nav>
+    <div class="container-fluid" ng-app="gis" ng-controller="FactoryInfoController">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <div class="card card-stats">
+                                <div class="card-header col-md-2" style="border-radius:8px" data-background-color="purple">
+                                    <img class="img" style="border-radius:8px" src="assets/images/factory.jpg" />
+                                </div>
+                                <div class="card-content col-md-6">
+                                    <h3 style="text-align:left" class="title">{{factory.name}}</h3>
+                                    <p style="text-align:left" class="category">{{factory.adress}}</p>
+                                    <p style="text-align:left" class="category"><small>{{factory.year}} y</small> </p>
+                                </div>                                
+                                <div class="card-footer col-md-12">
+
+                                    <p class="category"><strong>Category:</strong> {{factory.industry}}</p>
+                                    <p class="category"><strong>Site: </strong>{{factory.site}}</p>
+                                    <p class="category"><strong>Description: </strong> {{factory.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</gis-nav>

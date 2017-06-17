@@ -1,0 +1,24 @@
+<DIV class="modal-header">
+    <H3 class="modal-title">Delete this item?</H3>
+</DIV>
+<DIV class="modal-body">
+    Are you sure to delete this item?
+    <DIV class="form-group" ng-show="isRecurrent">
+        <LABEL>
+            <INPUT type="radio" ng-model="deleteType" value="this">
+            This occurence
+        </LABEL><BR />
+        <LABEL>
+            <INPUT type="radio" ng-model="deleteType" value="future">
+            Future occurences
+        </LABEL><BR />
+        <LABEL>
+            <INPUT type="radio" ng-model="deleteType" value="all">
+            All occurences
+        </LABEL><BR />
+    </DIV>
+</DIV>
+<DIV class="modal-footer">
+    <BUTTON class="btn btn-danger" ng-click="ok()">Delete</BUTTON>
+    <BUTTON class="btn btn-default" ng-click="cancel()">Cancel</BUTTON>
+</DIV>

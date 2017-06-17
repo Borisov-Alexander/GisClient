@@ -1,6 +1,29 @@
 <gis-nav> 
-    <div  ng-app="gis" ng-controller="MapController">    
-        <div  style="height:800px" class="col-md-12" id="map" ng-init="initialize()"></div>
+    <div  ng-app="gis" ng-controller="MapController"> 
+        <div class="col-md-9">
+            <div class="card card-stats">
+                <div style="height:800px" id="map" ng-init="initialize()"></div>
+                <!--<button type="submit" class="btn btn-primary pull-right" id="getMyLocal">Add Factory</button>-->
+            </div>
+        </div>
+            <div class="col-md-3">                
+                <div class="card card-stats">                   
+                    <p style="text-align:center" class="category">Settings</p>
+                     
+                    <div class="form-group label-floating">                        
+                        <div class="col-md-3">
+                            <button class="btn btn-sm btn-primary" ng-click="find()" type="button">Find</button>
+                         </div>
+                            <div class="col-md-9"><input id="address" type="text" class="form-control"></div>
+                        </div>  
+                        <div class="form-group label-floating">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3"><button class="btn btn-sm btn-primary" ng-click="findMe()" type="button">Find me</button></div>
+                           
+                             
+                        </div>                   
+                </div>                 
+            </div>
         </div> 
 </gis-nav>
 
