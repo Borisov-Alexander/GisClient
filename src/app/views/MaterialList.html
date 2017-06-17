@@ -11,10 +11,11 @@
                                         <p style="text-align:left" class="category" >Завод производитель : <a href="#/factoryInfo/{{mat.factory.factiryId}}">{{mat.factory.name}}</a></p>                                       
                                     </div>                                       
                                     <div class="card-footer col-md-12">
-                                        <p style="text-align:left" class="category">Стоимость : {{mat.cost}}руб </p>       
+                                        <p style="text-align:left" class="category">Стоимость : {{mat.cost}} руб </p>       
                                         <p style="text-align:left" class="category"> Количество на складе: {{mat.count}}</p> 
                                         <p style="text-align:left" class="category"> Описание: {{mat.description}}</p>       
                                     </div>
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="sendMessage(mat.materialId,mat.factory.usertEmail)">Заказать материал</button>   
                                 </div>
                             </div>
                         </div>                         

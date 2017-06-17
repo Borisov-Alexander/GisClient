@@ -19,7 +19,6 @@ angular.module('gis').controller('MapController', [
         var mapContainer = document.getElementById('map');
         $scope.infoWindow = new google.maps.InfoWindow({ map: $scope.map });
          
-
          
 
         $scope.initialize = function () {
@@ -32,7 +31,8 @@ angular.module('gis').controller('MapController', [
             $scope.geocoder = new google.maps.Geocoder();
             $scope.map.addListener('click', function (e) {
                 placeMarkerAndPanTo(e.latLng, $scope.map);
-            }); 
+            });             
+            getFatory();
         }
 
         function placeMarkerAndPanTo(latLng, map) {
@@ -57,14 +57,35 @@ angular.module('gis').controller('MapController', [
             $scope.geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     $scope.map.setCenter(results[0].geometry.location);
+                    $scope.map.setZoom(8);
                     var marker = new google.maps.Marker({
-                        map: $scope.map,
+                        map: $scope.map,                         
                         position: results[0].geometry.location
                     });
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
+        }
+
+
+        var showAllFactory = function () {
+            regService.getAllFactory().then(function (response) {                
+                angular.forEach(response, function (value, key) {
+                    $scope.geocoder.geocode({ 'address': value.adress }, function (results, status) {
+                        if (status === google.maps.GeocoderStatus.OK) {
+                            $scope.map.setCenter(results[0].geometry.location);
+                            $scope.map.setZoom(5);
+                            var marker = new google.maps.Marker({
+                                map: $scope.map,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                    });
+                })
+            })
         }
 
         var getMyLocal = function () {
@@ -109,9 +130,32 @@ angular.module('gis').controller('MapController', [
 
                 })
             }
-        };
-        $scope.factory = getFatory();
+            if ($stateParams.output) {               
+                
+                    $scope.directionsDisplay = new google.maps.DirectionsRenderer;
+                    $scope.directionsService = new google.maps.DirectionsService;
+                    $scope.directionsDisplay.setMap($scope.map);                    
+                    $scope.directionsService = new google.maps.DirectionsService();
 
+                    var request = {
+                        origin: $stateParams.input,
+                        destination: $stateParams.output,
+                        travelMode: google.maps.DirectionsTravelMode.DRIVING
+                    };
+                    
+                    $scope.directionsService.route(request, function (response, status) {
+
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            console.log(response);
+                            $scope.directionsDisplay.setDirections(response);
+                            console.log(response.routes.length);                          
+
+                        }
+                    });                
+            }
+        };
+        $scope.factory;
+        $scope.showAllFactory = showAllFactory;
         $scope.find = geocodeAddress;
         $scope.findMe = getMyLocal;
 

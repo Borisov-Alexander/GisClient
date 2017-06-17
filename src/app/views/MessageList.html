@@ -1,0 +1,26 @@
+﻿<gis-nav>
+        <div class="container-fluid" ng-app="gis" ng-controller="MessageListController">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div ng-repeat="mess in message" class="col-md-8">
+                            <div  >
+                                <div class="card card-stats">                                   
+                                    <div class="card-content col-md-12">
+                                        <p style="text-align:center" class="category"><strong>От {{mess.inputCustomer}}</strong> </p>                                       
+                                                                              
+                                    </div>                                       
+                                    <div class="card-footer col-md-12">
+                                        <p style="text-align:left" class="category">{{mess.message}}</p>      
+                                           
+                                    </div>
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="Ответить"></button>   
+                                </div>
+                            </div>
+                        </div>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+</gis-nav>
+

@@ -12,8 +12,17 @@ angular.module('gis').service("Transport", [
         regTransport.getUserFullInfo = function () {
             return requestHelper.get("/api/Account/UserFullInfo");
         };
+        regTransport.getMessageCount = function () {
+            return requestHelper.get("/api/Account/GetMessageCount");
+        };
+        regTransport.getAllMessage = function () {
+            return requestHelper.get("/api/Account/GetAllMessage");
+        };
         regTransport.updUser = function (data) {
             return requestHelper.post("/api/Account/UpdUser", data);
+        };
+        regTransport.addMessage = function (data) {
+            return requestHelper.post("/api/Account/AddMessage", data);
         };
         regTransport.getFactoryByEmail = function () {
             return requestHelper.get("/api/Factory/GetFactoryByEmail");
@@ -24,12 +33,18 @@ angular.module('gis').service("Transport", [
         regTransport.getMaterialByName = function (data) {
             return requestHelper.post("/api/Material/MaterialByName/" + data + "/info");
         };
+        regTransport.getMaterialById = function (data) {
+            return requestHelper.post("/api/Material/MaterialById/" + data + "/info");
+        };
 
         regTransport.getAllFactory = function () {
             return requestHelper.get("/api/Factory/GetAllFactory");
         };
         regTransport.getAllMaterial = function () {
             return requestHelper.get("/api/Material/getAllMaterial");
+        };
+        regTransport.getMaterialCount = function () {
+            return requestHelper.get("/api/Material/getMaterialCount");
         };
         regTransport.addFactory = function (data) {
             return requestHelper.post("/api/Factory/AddFactory", data);
@@ -40,6 +55,20 @@ angular.module('gis').service("Transport", [
         regTransport.logout = function () {
             return requestHelper.post("/api/Account/Logout");
         };
+        regTransport.incrByFactory = function (data) {
+            return requestHelper.post("/api/Factory/incrByFactory/" + data + "/info");
+        };
+        regTransport.incrByMaterial = function (data) {
+            return requestHelper.post("/api/Factory/incrByMaterial/" + data + "/info");
+        };
+        regTransport.getViewsCount = function () {
+            return requestHelper.get("/api/Factory/GetViewsCount");
+        };
+
+
+
+
+
         return regTransport;
     }
 ]);

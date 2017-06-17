@@ -14,10 +14,13 @@ angular.module('gis').controller('FactoryInfoController', [
         $stateParams
         ) {
 
-        var getFatory = function () {                        
+        var getFatory = function () { 
+            regService.incrByFactory($stateParams.id);
+            
             return regService.getFactoryById($stateParams.id).then(function (response) {
                 $scope.factory = response;
             })
+             
         };                     
         $scope.factory = getFatory();
         

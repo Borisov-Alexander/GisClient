@@ -32,6 +32,33 @@ angular.module('gis', ['ui.router'])
                 }
 
             })
+            .state('sendMessage', {
+                url: '/sendMessage',
+                templateUrl: 'app/views/SendMessage.html',
+                controller: 'SendMessageController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })
+            .state('messageList', {
+                url: '/messageList',
+                templateUrl: 'app/views/MessageList.html',
+                controller: 'MessageListController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })
+            .state('sendMessageInput', {
+                url: '/sendMessage/:input/:output',
+                templateUrl: 'app/views/SendMessage.html',
+                controller: 'SendMessageController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })
             .state('factoryList', {
                 url: '/factoryList',
                 templateUrl: 'app/views/FactoryList.html',
@@ -43,6 +70,15 @@ angular.module('gis', ['ui.router'])
             }) 
             .state('materialList', {
                 url: '/materialList',
+                templateUrl: 'app/views/MaterialList.html',
+                controller: 'MaterialListController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            }) 
+            .state('materialInfo', {
+                url: '/materialList/:id',
                 templateUrl: 'app/views/MaterialList.html',
                 controller: 'MaterialListController',
                 resolve: {
@@ -79,6 +115,15 @@ angular.module('gis', ['ui.router'])
             })
             .state('factoryMap', {
                 url: '/factoryMap/:id',
+                templateUrl: 'app/views/Map.html',
+                controller: 'MapController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })
+            .state('InputOutputMap', {
+                url: '/map/:input/:output',
                 templateUrl: 'app/views/Map.html',
                 controller: 'MapController',
                 resolve: {

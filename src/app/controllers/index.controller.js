@@ -15,7 +15,11 @@ angular.module('gis').controller('IndexController', [
             $window.sessionStorage.clear();
             $window.sessionStorage.userName;
         };
-
+        var messageCount = function () {
+            regService.getMessageCount().then(function (data) {
+                $scope.messageCount = data.materialCount;
+            });
+        }
         $scope.logout = logOut;
-
+        $scope.messageCount = messageCount();
     }]);

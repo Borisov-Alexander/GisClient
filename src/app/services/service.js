@@ -19,8 +19,20 @@ angular.module('gis').service("Service", [
             return regTransport.getUserFullInfo();
 
         };
+        regService.getMessageCount = function () {
+            return regTransport.getMessageCount();
+
+        };
+        regService.getAllMessage = function () {
+            return regTransport.getAllMessage();
+
+        };
         regService.updUser = function (data) {
             return regTransport.updUser(data);
+
+        };
+        regService.addMessage = function (data) {
+            return regTransport.addMessage(data);
 
         };
         regService.getFactoryByEmail = function (data) {
@@ -32,6 +44,18 @@ angular.module('gis').service("Service", [
         };
         regService.getMaterialByName = function (data) {
             return regTransport.getMaterialByName(data);
+
+        };
+        regService.getMaterialCount = function () {
+            return regTransport.getMaterialCount();
+
+        };
+        regService.getViewsCount = function () {
+            return regTransport.getViewsCount();
+
+        };
+        regService.getMaterialById = function (data) {
+            return regTransport.getMaterialById(data);
 
         };
         regService.getAllFactory = function (data) {
@@ -48,7 +72,13 @@ angular.module('gis').service("Service", [
         };
         regService.addMaterial = function (data) {
             return regTransport.addMaterial(data);
+        };
 
+        regService.incrByFactory = function (data) {
+            return regTransport.incrByFactory(data);
+        };
+        regService.incrByMaterial = function (data) {
+            return regTransport.incrByMaterial(data);
         };
 
         regService.logout = function () {

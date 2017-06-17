@@ -1,0 +1,34 @@
+﻿<gis-nav>
+    <div class="container-fluid" ng-app="gis" ng-controller="SendMessageController">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>
+                            <div class="card card-stats">
+                                <div class="card-content col-md-12">
+                                    <p style="text-align:center" class="category"><strong>Написать сообщение</strong>   </p>
+                                    <p style="text-align:left" class="category form-group label-floating">
+                                        Для пользователя:
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Напите email пользователя системы</label>
+                                            <input type="text" class="form-control" ng-model="forCustomer">
+                                        </div>
+                                </div>
+
+
+                                <div class="card-footer col-md-12">
+                                    <div class="form-group label-floating col-md-12">
+                                        <textarea type="text" class="form-control" ng-model="message" rows="20"></textarea>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="sendMessage()">Отправить сообщение</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</gis-nav>
+
