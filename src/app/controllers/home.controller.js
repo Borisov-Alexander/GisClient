@@ -21,150 +21,229 @@ angular.module('gis').controller('HomeController', [
         $scope.setting = [];
          
         var getDistance = function () {
-            regService.getMaterialByName($scope.materialName).then(function (material) {
-                var minDistance = 0;
-                var i = 0;
-                var count = 0;
-                var keys = Object.keys(material);
-                var minName;
-                var minMaterialId;
-                var minFactoryId;
-                angular.forEach(material, function (value, key) {
-                    var distanceMatrix = new google.maps.DistanceMatrixService();
-                    var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
-                    distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
-                        if (status != google.maps.DistanceMatrixStatus.OK) {
-                            console.log('An error occured: ' + status);
-                            count++;
-                        }
-                        else {
-                            if (i == 0) {
-                                minName = value.factory.adress;
-                                minFactoryId = value.factory.factoryId;
-                                minMaterialId = value.materialId;
-                                i = response.rows[0].elements[0].distance.value;
-                                count++;
-                                if (count == keys.length) {
-                                    $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName  });
-                                }
-                            } else {
-                                if (i > response.rows[0].elements[0].distance.value) {
+            if ($scope.setting.value2) {
+                regService.getMinCostMaterial($scope.materialName).then(function (material) {
+                    $state.go("InputOutputMap", { input: $scope.inputAdress, output: material.factory.adress });
+                })
+            } else {
+                if ($scope.setting.value3) {
+                    regService.getMaterialByName($scope.materialName).then(function (material) {
+                        var minDistance = 0;
+                        var i = 0;
+                        var count = 0;
+                        var keys = Object.keys(material);
+                        var minName;
+                        var minMaterialId;
+                        var minFactoryId;
+                        angular.forEach(material, function (value, key) {
+                            var distanceMatrix = new google.maps.DistanceMatrixService();
+                            var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
+                            distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
+                                if (status != google.maps.DistanceMatrixStatus.OK) {
+                                    console.log('An error occured: ' + status);
                                     count++;
-                                    minName = value.factory.adress;
-                                    i = response.rows[0].elements[0].distance.value;
-                                    if (count == keys.length) {
-                                        $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
-                                    }
-                                } else {
-                                    count++;
-                                    if (count == keys.length) {
-                                        $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
-                                    }
                                 }
-                            }
-                             
-                        }
-                    });
-                });
-            })
+                                else {
+                                    if (i == 0) {
+                                        minName = value.factory.adress;
+                                        minFactoryId = value.factory.factoryId;
+                                        minMaterialId = value.materialId;
+                                        i = response.rows[0].elements[0].distance.value * 20 + $scope.materialcount* value.cost;
+                                        count++;
+                                        if (count == keys.length) {
+                                            $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
+                                        }
+                                    } else {
+                                        if (i > response.rows[0].elements[0].distance.value * 20 + $scope.materialcount * value.cost) {
+                                            count++;
+                                            minName = value.factory.adress;
+                                            i = response.rows[0].elements[0].distance.value * 20 + $scope.materialcount * value.cost;
+                                            if (count == keys.length) {
+                                                $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
+                                            }
+                                        } else {
+                                            count++;
+                                            if (count == keys.length) {
+                                                $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
+                                            }
+                                        }
+                                    }
+
+                                }
+                            });
+                        });
+                    })
+                }
+
+                if ($scope.setting.value1) {
+                    regService.getMaterialByName($scope.materialName).then(function (material) {
+                        var minDistance = 0;
+                        var i = 0;
+                        var count = 0;
+                        var keys = Object.keys(material);
+                        var minName;
+                        var minMaterialId;
+                        var minFactoryId;
+                        angular.forEach(material, function (value, key) {
+                            var distanceMatrix = new google.maps.DistanceMatrixService();
+                            var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
+                            distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
+                                if (status != google.maps.DistanceMatrixStatus.OK) {
+                                    console.log('An error occured: ' + status);
+                                    count++;
+                                }
+                                else {
+                                    if (i == 0) {
+                                        minName = value.factory.adress;
+                                        minFactoryId = value.factory.factoryId;
+                                        minMaterialId = value.materialId;
+                                        i = response.rows[0].elements[0].distance.value;
+                                        count++;
+                                        if (count == keys.length) {
+                                            $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
+                                        }
+                                    } else {
+                                        if (i > response.rows[0].elements[0].distance.value) {
+                                            count++;
+                                            minName = value.factory.adress;
+                                            i = response.rows[0].elements[0].distance.value;
+                                            if (count == keys.length) {
+                                                $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
+                                            }
+                                        } else {
+                                            count++;
+                                            if (count == keys.length) {
+                                                $state.go("InputOutputMap", { input: $scope.inputAdress, output: minName });
+                                            }
+                                        }
+                                    }
+
+                                }
+                            });
+                        });
+                    })
+                }
+            }
         };
         var showMaterial = function () {
-            regService.getMaterialByName($scope.materialName).then(function (material) {
-                var minDistance = 0;
-                var i = 0;
-                var count = 0;
-                var keys = Object.keys(material);
-                var minName;
-                var minMaterialId;
-                var minFactoryId;
-                angular.forEach(material, function (value, key) {
-                    var distanceMatrix = new google.maps.DistanceMatrixService();
-                    var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
-                    distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
-                        if (status != google.maps.DistanceMatrixStatus.OK) {
-                            console.log('An error occured: ' + status);
-                            count++;
-                        }
-                        else {
-                            if (i == 0) {
-                                minName = value.factory.adress;
-                                minFactoryId = value.factory.factoryId;
-                                minMaterialId = value.materialId;
-                                i = response.rows[0].elements[0].distance.value;
-                                count++;
-                                if (count == keys.length) {
-                                    $state.go("materialInfo", { id: minMaterialId });
-                                }
-                            } else {
-                                if (i > response.rows[0].elements[0].distance.value) {
-                                    count++;
-                                    minName = value.factory.adress;
-                                    i = response.rows[0].elements[0].distance.value;
-                                    if (count == keys.length) {
-                                        $state.go("materialInfo", { id: minMaterialId });
-                                    }
-                                } else {
-                                    count++;
-                                    if (count == keys.length) {
-                                        $state.go("materialInfo", { id: minMaterialId });
-                                    }
-                                }
-                            }
+            if ($scope.setting.value2) {
+                regService.getMinCostMaterial($scope.materialName).then(function (material) {
+                    $state.go("materialInfo", { id: material.materialId });
+                })
+            } else {
+                if ($scope.setting.value3) {
+                }
 
-                        }
-                    });
-                });
-            })
+                if ($scope.setting.value1) {
+                    regService.getMaterialByName($scope.materialName).then(function (material) {
+                        var minDistance = 0;
+                        var i = 0;
+                        var count = 0;
+                        var keys = Object.keys(material);
+                        var minName;
+                        var minMaterialId;
+                        var minFactoryId;
+                        angular.forEach(material, function (value, key) {
+                            var distanceMatrix = new google.maps.DistanceMatrixService();
+                            var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
+                            distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
+                                if (status != google.maps.DistanceMatrixStatus.OK) {
+                                    console.log('An error occured: ' + status);
+                                    count++;
+                                }
+                                else {
+                                    if (i == 0) {
+                                        minName = value.factory.adress;
+                                        minFactoryId = value.factory.factoryId;
+                                        minMaterialId = value.materialId;
+                                        i = response.rows[0].elements[0].distance.value;
+                                        count++;
+                                        if (count == keys.length) {
+                                            $state.go("materialInfo", { id: minMaterialId });
+                                        }
+                                    } else {
+                                        if (i > response.rows[0].elements[0].distance.value) {
+                                            count++;
+                                            minName = value.factory.adress;
+                                            i = response.rows[0].elements[0].distance.value;
+                                            if (count == keys.length) {
+                                                $state.go("materialInfo", { id: minMaterialId });
+                                            }
+                                        } else {
+                                            count++;
+                                            if (count == keys.length) {
+                                                $state.go("materialInfo", { id: minMaterialId });
+                                            }
+                                        }
+                                    }
+
+                                }
+                            });
+                        });
+                    })
+                }
+            }
         };
         var showFactory = function () {
-            regService.getMaterialByName($scope.materialName).then(function (material) {
-                var minDistance = 0;
-                var i = 0;
-                var count = 0;
-                var keys = Object.keys(material);
-                var minName;
-                var minMaterialId;
-                var minFactoryId;
-                angular.forEach(material, function (value, key) {
-                    var distanceMatrix = new google.maps.DistanceMatrixService();
-                    var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
-                    distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
-                        if (status != google.maps.DistanceMatrixStatus.OK) {
-                            console.log('An error occured: ' + status);
-                            count++;
-                        }
-                        else {
-                            if (i == 0) {
-                                minName = value.factory.adress;
-                                minFactoryId = value.factory.factiryId;
-                                minMaterialId = value.materialId;
-                                i = response.rows[0].elements[0].distance.value;
-                                count++;
-                                if (count == keys.length) {
-                                    $state.go("factoryInfo", { id: minFactoryId });
-                                }
-                            } else {
-                                if (i > response.rows[0].elements[0].distance.value) {
-                                    count++;
-                                    minName = value.factory.adress;
-                                    minFactoryId = value.factory.factiryId;
-                                    minMaterialId = value.materialId;
-                                    i = response.rows[0].elements[0].distance.value;
-                                    if (count == keys.length) {
-                                        $state.go("factoryInfo", { id: minFactoryId });
-                                    }
-                                } else {
-                                    count++;
-                                    if (count == keys.length) {
-                                        $state.go("factoryInfo", { id: minFactoryId });
-                                    }
-                                }
-                            }
+            if ($scope.setting.value2) {
+                regService.getMinCostMaterial($scope.materialName).then(function (material) {
+                    $state.go("factoryInfo", { id: material.materialId });
+                })
+            } else {
+                if ($scope.setting.value3) {
+                }
 
-                        }
-                    });
-                });
-            })
+                if ($scope.setting.value1) {
+                    regService.getMaterialByName($scope.materialName).then(function (material) {
+                        var minDistance = 0;
+                        var i = 0;
+                        var count = 0;
+                        var keys = Object.keys(material);
+                        var minName;
+                        var minMaterialId;
+                        var minFactoryId;
+                        angular.forEach(material, function (value, key) {
+                            var distanceMatrix = new google.maps.DistanceMatrixService();
+                            var distanceRequest = { origins: [$scope.inputAdress], destinations: [value.factory.adress], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC };
+                            distanceMatrix.getDistanceMatrix(distanceRequest, function (response, status) {
+                                if (status != google.maps.DistanceMatrixStatus.OK) {
+                                    console.log('An error occured: ' + status);
+                                    count++;
+                                }
+                                else {
+                                    if (i == 0) {
+                                        minName = value.factory.adress;
+                                        minFactoryId = value.factory.factiryId;
+                                        minMaterialId = value.materialId;
+                                        i = response.rows[0].elements[0].distance.value;
+                                        count++;
+                                        if (count == keys.length) {
+                                            $state.go("factoryInfo", { id: minFactoryId });
+                                        }
+                                    } else {
+                                        if (i > response.rows[0].elements[0].distance.value) {
+                                            count++;
+                                            minName = value.factory.adress;
+                                            minFactoryId = value.factory.factiryId;
+                                            minMaterialId = value.materialId;
+                                            i = response.rows[0].elements[0].distance.value;
+                                            if (count == keys.length) {
+                                                $state.go("factoryInfo", { id: minFactoryId });
+                                            }
+                                        } else {
+                                            count++;
+                                            if (count == keys.length) {
+                                                $state.go("factoryInfo", { id: minFactoryId });
+                                            }
+                                        }
+                                    }
+
+                                }
+                            });
+                        });
+                    })
+                }
+            }
         };
            
         

@@ -38,6 +38,9 @@ angular.module('gis').service("Service", [
         regService.getFactoryByEmail = function (data) {
             return regTransport.getFactoryByEmail(data);
         };
+        regService.getMinCostMaterial = function (data) {
+            return regTransport.getMinCostMaterial(data);
+        };
         regService.getFactoryById = function (data) {
             return regTransport.getFactoryById(data);
 

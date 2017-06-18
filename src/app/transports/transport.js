@@ -36,6 +36,9 @@ angular.module('gis').service("Transport", [
         regTransport.getMaterialById = function (data) {
             return requestHelper.post("/api/Material/MaterialById/" + data + "/info");
         };
+        regTransport.getMinCostMaterial = function (data) {
+            return requestHelper.post("/api/Material/MinCostMaterial/" + data + "/info");
+        };
 
         regTransport.getAllFactory = function () {
             return requestHelper.get("/api/Factory/GetAllFactory");

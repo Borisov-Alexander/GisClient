@@ -32,6 +32,15 @@ angular.module('gis', ['ui.router'])
                 }
 
             })
+            .state('test', {
+                url: '/test',
+                templateUrl: 'app/views/Test.html',
+                controller: 'TestController',
+                resolve: {
+                    factory: checkRouting
+                }
+
+            })
             .state('sendMessage', {
                 url: '/sendMessage',
                 templateUrl: 'app/views/SendMessage.html',
